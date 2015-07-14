@@ -13,3 +13,10 @@
 *.a
 
 protoc
+ProtoToStructGithub.sln
+ProtoToStructGithub.opensdf
+*.sdf
+ProtoToStructGithub.vcxproj
+*.filters
+remote_cmake.sh
+remote_compile.bat
