@@ -17,7 +17,6 @@
 #include "google/protobuf/compiler/importer.h"
 
 #include "proto_to_struct.pb.h"
-#include "comm_struct.pb.h"
 
 using namespace google::protobuf;
 using namespace google::protobuf::compiler;
@@ -473,9 +472,5 @@ int main(int argc, char* argv[])
         write(fd, struct_str.str().c_str(), struct_str.str().size());
         close(fd);
     }
-
-    ProtoComm::Player::HeroInfo hero_info;
-    hero_info.set_id(1001);
-    cout << hero_info.DebugString() << endl;
     return 0;
 }
