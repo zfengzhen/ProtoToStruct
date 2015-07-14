@@ -2,19 +2,19 @@ package ProtoComm.Player;
 import "proto_to_struct.proto";
 
 message EquipInfo {
-	option (parse_to_struct) = true;
+    option (parse_to_struct) = true;
     optional uint32 id = 1; //装备ID
     optional int32 level = 2; // 装备等级
     optional int32 exp = 3; // 装备在该等级下的经验
 }
 
 message SkillInfo {
-	option (parse_to_struct) = true;
+    option (parse_to_struct) = true;
     optional uint32 id = 1; // 技能ID
 }
 
 message HeroInfo {
-	option (parse_to_struct) = true;
+    option (parse_to_struct) = true;
     optional uint32 id = 1; // 武将ID
     optional int32 level = 2; // 武将等级
     optional int32 quality = 3; // 武将阶数
@@ -25,7 +25,7 @@ message HeroInfo {
 }
 
 message RoleInfo {
-	option (parse_to_struct) = true;
+    option (parse_to_struct) = true;
     optional int32 Money = 1; // 金币
     optional int32 diamond = 2; // 钻石
     optional int32 level = 3; // 召唤师等级
@@ -34,7 +34,7 @@ message RoleInfo {
 
 // 玩家数据
 message PlayerData {
-	option (parse_to_struct) = true;
+    option (parse_to_struct) = true;
     optional RoleInfo role_info = 1; // 召唤师相关属性
     repeated HeroInfo hero_info = 2 [ (repeated_max_size) = 100 ]; // 武将
 }
