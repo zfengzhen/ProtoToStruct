@@ -1,0 +1,46 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+
+PROJECT(LUA_ASYNC_TASK)
+
+#编译参数
+SET(CMAKE_CXX_FLAGS "-Wall -g")
+
+#预定义
+ADD_DEFINITIONS(-DDEBUG)
+
+SET(DEP_DIR ${PROJECT_SOURCE_DIR}/dep)
+SET(PROTOBUF_INCLUDE ${DEP_DIR}/protobuf/include/google/protobuf/)
+SET(GOOGLE_INCLUDE ${DEP_DIR}/protobuf/include/)
+SET(PROTOCOL_DIR ${PROJECT_SOURCE_DIR}/protocol)
+SET(PROTOCOL_INCLUDE ${PROTOCOL_DIR}/proto_gen_cpp)
+
+SET(PROTOBUF_LIB ${DEP_DIR}/protobuf/lib/libprotobuf.a)
+SET(PROTOCOL_LIB ${PROTOCOL_DIR}/proto_gen_cpp/libprotocol.a)
+
+#设置工具变量
+SET(PROTOC ${DEP_DIR}/protobuf/bin/protoc)
+
+#链接库
+SET(DYN_LIBS dl rt pthread)
+
+SET(STATIC_LIBS
+    ${PROTOBUF_LIB}
+    ${PROTOCOL_LIB}
+)
+
+#头文件-I路径设置
+INCLUDE_DIRECTORIES(
+    ${GOOGLE_INCLUDE}
+    ${PROTOBUF_INCLUDE}
+	${PROTOCOL_INCLUDE}
+)
+
+#静态库 -L路径设置
+LINK_DIRECTORIES(
+	${DEP_DIR}/protobuf/lib/
+    ${PROTOCOL_INCLUDE}
+)
+
+ADD_SUBDIRECTORY(protocol)
+ADD_SUBDIRECTORY(main)
+ADD_SUBDIRECTORY(test)

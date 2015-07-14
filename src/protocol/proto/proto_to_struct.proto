@@ -1,0 +1,11 @@
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.FieldOptions {
+       optional int32 string_max_size = 10001;
+       optional int32 repeated_max_size = 10002;
+}
+
+extend google.protobuf.MessageOptions {
+       // 当前message是否解析
+       optional bool parse_to_struct = 20001;
+}

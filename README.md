@@ -1,2 +1,2 @@
 # ProtoToStruct
-convert proto file to struct
+convert proto file to struct file
